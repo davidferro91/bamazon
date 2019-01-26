@@ -23,3 +23,6 @@ VALUES ("The Beatles (White Album)", "Music - Vinyl, CD", 34.99, 1000),
 ("Flannel Pajama Pants", "Clothing", 32.99, 421);
 
 SELECT * FROM products;
+
+ALTER TABLE products
+ADD product_sales DECIMAL(10,2) DEFAULT 0.00;
