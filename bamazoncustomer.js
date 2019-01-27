@@ -46,10 +46,9 @@ function consoleDivider () {
     console.log("===========================================");
 }
 
-function validateNum(num)
-{
+function validateInt(num) {
    var reg = /^\d+$/;
-   return reg.test(num) || "ID should be a number.";
+   return reg.test(num) || "This should be a nonnegative integer.";
 }
 
 function buyProduct () {
@@ -58,7 +57,7 @@ function buyProduct () {
             type: "input",
             message: "Please type in the ID of the product that you would like to purchase.  If you would not like to purchase anything, type in \"0\".",
             name: "id_input",
-            validate: validateNum
+            validate: validateInt
         }
     ]).then(function(ans) {
         if (ans.id_input === "0") {
@@ -70,11 +69,11 @@ function buyProduct () {
                     type: "input",
                     message: "How many would you like to buy?",
                     name: "quantity",
-                    validate: validateNum
+                    validate: validateInt
                 },
                 {
                     type: "confirm",
-                    message: "Are you sure?",
+                    message: "Are you sure that you would like to make this purchase?",
                     name: "confirm"
                 }
             ]).then(function(res) {
